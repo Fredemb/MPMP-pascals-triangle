@@ -8,4 +8,6 @@ I have tried to mitigate the memory problem by dropping every line as I no longe
 Since making this, I have realized that a more elegant solution, pushing back the memory problem even further, would have been to generalise the problem, by only storing a bool (eg true if the number is odd), 
 since I would still be able to accurately determine if two added numbers will yeild an odd or even number, without knowing the actual number - this would probably save me a lot of memory, and computation time.
 
+UPDATE: This generalised solution can now be found in the "Generalised-to-Bool" branch of this repository :-)
+
 Also, I intuitively feel like there should be some mathmatically elegant solution, that doesn't rely on actually calculating tens of thousands of rows to arrive at an answer, but coding was just what first came to my mind.
