@@ -91,7 +91,24 @@ function calculate() {
     generateTriangle(inputnumber).forEach(appendline) //Generates the triangle, and then starts the appendline function (below)
 
     function appendline(line){
-        document.getElementById("output").innerHTML += line + "<br>" //Writes the triangle from memory to screen - most of the triangle is dropped, so only the last line will appear
+        var outputHTML = document.getElementById("output")
+        var lineArray = line.toString().split(",")
+        lineArray.forEach(createSpan)
+
+        function createSpan(s) {
+            var newSpan = document.createElement('span')
+            newSpan.innerHTML = s + ", "
+            if (s == 'true') {
+                newSpan.style.color = 'Darkgreen'
+            }
+            else {
+                newSpan.style.color = 'Darkred'
+            }
+            console.log(newSpan)
+            outputHTML.appendChild(newSpan)
+        }
+
+        outputHTML.innerHTML += "<br><br>"
     }
 }
 
