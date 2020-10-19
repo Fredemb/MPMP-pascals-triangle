@@ -64,7 +64,7 @@ function generateTriangle(numberOfRows) {
     
         updateUI(i)
     
-        console.log(i + ": " + rowratio.toFixed(4) + "%  ->  " + ratio.toFixed(4) + "%")
+        //console.log(i + ": " + rowratio.toFixed(4) + "%  ->  " + ratio.toFixed(4) + "%")
     }
     
     return triangle
@@ -95,7 +95,7 @@ function calculate() {
             else {
                 newSpan.style.color = 'Darkred'
             }
-            console.log(newSpan)
+            //console.log(newSpan)
             outputHTML.appendChild(newSpan)
         }
 
