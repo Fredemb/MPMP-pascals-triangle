@@ -5,6 +5,9 @@ var odd = 0
 var rowtotal = 0
 var rowodd = 0
 
+var rowratio = 100
+var ratio = 100
+
 function checkOdd(n) {
     total += 1
     rowtotal += 1
@@ -37,6 +40,7 @@ function generateTriangle(numberOfRows) {
     var triangle = [] //Variable to store pascals triangle
     triangle.push([BigInt(1)]) //Starting the first row as a single 1
     triangle[0].forEach(checkOdd) //Count the odd numbers in the first row
+    updateUI(0)
     
     for (i=1; i<numberOfRows; i++){ //Loop to generate pascals triangle
         var lastRow = triangle[triangle.length-1]
