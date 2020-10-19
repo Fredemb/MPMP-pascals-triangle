@@ -81,8 +81,25 @@ function calculate() {
     generateTriangle(inputnumber).forEach(appendline)
 
     function appendline(line){
-        document.getElementById("output").innerHTML += (line + "<br>").replace(/,/g, ', ')
-        //document.getElementById("output").innerHTML += line + "<br>"
+        var outputHTML = document.getElementById("output")
+        var lineArray = line.toString().split(",")
+        lineArray.forEach(createSpan)
+
+        function createSpan(s) {
+            var newSpan = document.createElement('span')
+            newSpan.innerHTML = s + ", "
+            var n = BigInt(s)
+            if (!(n % 2n == 0n)) {
+                newSpan.style.color = 'Darkgreen'
+            }
+            else {
+                newSpan.style.color = 'Darkred'
+            }
+            console.log(newSpan)
+            outputHTML.appendChild(newSpan)
+        }
+
+        outputHTML.innerHTML += "<br><br>"
     }
 }
 
