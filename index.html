@@ -2,19 +2,68 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Performance Calculator P06T</title>
+    <title>MPMP16 Pascals Triangle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
     <p>This is my additional work for MPMP pascals triangle</p>
 
-    <span>Number of rows to calculate: </span><input type="number" id="rows" name="rows">
+    <span>Number of rows to calculate: </span><input type="number" id="rows" name="rows"> 
+    <br>
+    <span>OBS! On calculatting more rows: computation time increases exponentially, and the site will eventually crash due to too high memory usage</span>
     <br><br>
     <button id="calculateButton">Calculate!</button>
     <br><br>
     <p>Last row of generated triangle:</p>
-    <p id="output"></p>
+    <div id="output" 
+        style="
+            height:200px;
+            width:100%;
+            border:1px solid #ccc;
+            overflow:auto;">
+    </div>
+
+    <table>
+        <tr>
+            <td>Last row calculated:</td>
+            <td class=right-align id="rowsCalculated">-</td>
+        </tr>
+        <tr>
+            <td>% odd numbers in this row:</td>
+            <td class=right-align id="oddThisRow">-</td>
+        </tr>
+        <tr>
+            <td>% odd numbers in all rows:</td>
+            <td class=right-align id="oddAllRows">-</td>
+        </tr>
+    </table>
+    
+    <style>
+        p {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+        }
+        
+        td {
+          text-align: left;
+          padding: 8px;
+          min-width: 100px;
+        }
+
+        td.right-align {
+            text-align: right;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+    </style>
 
     <script src="MPMP Pascals Triangle additional.js"></script>
 </body>

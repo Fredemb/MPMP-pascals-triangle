@@ -14,6 +14,25 @@ function checkOdd(n) {
     }
 }
 
+//Add references to UI elements
+let totalRowsUI = document.getElementById("rowsCalculated")
+let rowratioUI = document.getElementById("oddThisRow")
+let ratioUI = document.getElementById("oddAllRows")
+let calculateButton = document.getElementById("calculateButton")
+var inputnumber = document.getElementById("rows").value
+
+function updateUI(i) { //Function to update the output on screen
+
+    //Calculate new ratios
+    rowratio = (rowodd/rowtotal)*100
+    ratio = (odd/total)*100
+
+    //Print output to relevant UI elements
+    totalRowsUI.innerHTML = i
+    rowratioUI.innerHTML = rowratio.toFixed(4) + "%"
+    ratioUI.innerHTML = ratio.toFixed(4) + "%"
+}
+
 function generateTriangle(numberOfRows) {
     var triangle = [] //Variable to store pascals triangle
     triangle.push([BigInt(1)]) //Starting the first row as a single 1
@@ -43,8 +62,7 @@ function generateTriangle(numberOfRows) {
         triangle.push(nextRow)
         triangle.shift()
     
-        var rowratio = (rowodd/rowtotal)*100
-        var ratio = (odd/total)*100
+        updateUI(i)
     
         console.log(i + ": " + rowratio.toFixed(4) + "%  ->  " + ratio.toFixed(4) + "%")
     }
@@ -52,20 +70,19 @@ function generateTriangle(numberOfRows) {
     return triangle
 }
 
-let calculateButton = document.getElementById("calculateButton")
-var inputnumber = document.getElementById("rows").value
-
 function calculate() {
     total = 0
     odd = 0
     rowtotal = 0
     rowodd = 0
+    updateUI(0)
     inputnumber = Number(document.getElementById("rows").value)
-    document.getElementById("output").innerHTML = null
+    document.getElementById("output").innerHTML = ''
     generateTriangle(inputnumber).forEach(appendline)
 
     function appendline(line){
-        document.getElementById("output").innerHTML += line + "<br>"
+        document.getElementById("output").innerHTML += (line + "<br>").replace(/,/g, ', ')
+        //document.getElementById("output").innerHTML += line + "<br>"
     }
 }
 
